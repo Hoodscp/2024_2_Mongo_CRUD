@@ -1,15 +1,12 @@
 import EditTopicForm from '@/components/EditTopicForm'
 import React from 'react'
-//const apiUrl = process.env.API_URL
+const apiUrl = process.env.API_URL
 
 const getTopicById = async (id: string) => {
   try {
-    const res = await fetch(
-      `https://2024-2-mongo-crud-qgtg2oz7r-hoodscps-projects.vercel.app/api/topics/${id}`,
-      {
-        cache: 'no-store',
-      }
-    )
+    const res = await fetch(`${apiUrl}/api/topics/${id}`, {
+      cache: 'no-store',
+    })
     if (!res.ok) {
       throw new Error('Failed to fetch topic.')
     }
