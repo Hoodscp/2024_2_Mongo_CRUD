@@ -38,23 +38,23 @@ export async function PUT(
   }
 }
 
-// export async function GET(
-//   request: NextRequest,
-//   { params }: { params: { id: string } }
-// ) {
-//   try {
-//     const { id } = params
-//     await connectMongoDB()
-//     const topic = await Topic.findOne({ _id: id })
-//     if (!topic) {
-//       return NextResponse.json({ message: 'Topic not found' }, { status: 404 })
-//     }
-//     return NextResponse.json({ topic }, { status: 200 })
-//   } catch (error) {
-//     console.error('Error in GET /api/topics/[id]:', error)
-//     return NextResponse.json(
-//       { message: 'Internal Server Error' },
-//       { status: 500 }
-//     )
-//   }
-// }
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const { id } = params
+    await connectMongoDB()
+    const topic = await Topic.findOne({ _id: id })
+    if (!topic) {
+      return NextResponse.json({ message: 'Topic not found' }, { status: 404 })
+    }
+    return NextResponse.json({ topic }, { status: 200 })
+  } catch (error) {
+    console.error('Error in GET /api/topics/[id]:', error)
+    return NextResponse.json(
+      { message: 'Internal Server Error' },
+      { status: 500 }
+    )
+  }
+}
