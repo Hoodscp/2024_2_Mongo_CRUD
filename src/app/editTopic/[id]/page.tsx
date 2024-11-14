@@ -1,6 +1,6 @@
 import EditTopicForm from '@/components/EditTopicForm'
 import React from 'react'
-const apiUrl = process.env.API_URL
+//const apiUrl = process.env.API_URL
 
 const getTopicById = async (id: string) => {
   try {
